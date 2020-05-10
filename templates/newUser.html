@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block head %} New User {% endblock %}
+
+{% block body %}
+    <h3 class="text-center">New User</h3>
+
+    <form action="/user" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control col-10 col-lg-6" >
+        
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location" class="form-control col-10 col-lg-6">
+        
+        <label for="salary">Salary</label>
+        <input type="text" name="salary" id="salary" class="form-control col-10 col-lg-6">
+        
+        <input type="submit" class="btn btn-success">
+    </form>
+
+{% endblock %}
+

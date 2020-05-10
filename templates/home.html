@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head%}
+    Home Page
+{% endblock %}
+
+{% block body %}
+    <h3 class="text-center">Task Master</h3>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Taks Id</th>
+                <th>Task Name</th>
+                <th>Completed</th>
+                <th>Created at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in all_tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.content }}</td>
+                    {% if task.completed == 1 %}
+                        <td>True</td>
+                    {% else %}
+                        <td>False</td>
+                    {% endif %}
+                    <td>{{ task.date_created }}</td>
+                    <td>
+                        <a href="/delete/{{task.id}}">Delete</a>
+                        <a href="/update/{{task.id}}">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div>
+        <form action="/" method="POST">
+            <div class="row">
+                <input type="text" name="content" id="content" class="form-control col-10 col-lg-6">
+                <input type="submit" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
